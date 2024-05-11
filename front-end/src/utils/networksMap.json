@@ -6,5 +6,6 @@
     "1337": "Ganache",
     "80001": "Polygon Testnet",
     "137": "Polygon Mainnet",
-    "56": "BSC"
+    "56": "BSC",
+    "17000": "holesky"
 }

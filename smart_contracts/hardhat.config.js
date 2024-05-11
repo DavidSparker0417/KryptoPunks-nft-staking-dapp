@@ -1,5 +1,6 @@
 require("dotenv").config();
-require("@nomiclabs/hardhat-etherscan");
+// require("@nomiclabs/hardhat-etherscan");
+require("@nomicfoundation/hardhat-verify");
 require("@nomicfoundation/hardhat-chai-matchers");
 require("hardhat-gas-reporter");
 
@@ -36,6 +37,11 @@ module.exports = {
     hardhat: {
       chainId: 31337
     },
+    holesky: {
+      url: 'https://ethereum-holesky-rpc.publicnode.com',
+      chainId: 17000,
+      accounts: [process.env.PRIVATE_KEY],
+    },
     ganache: {
       chainId: 1337,
       url: "http://127.0.0.1:7545",
@@ -61,6 +67,10 @@ module.exports = {
   etherscan: {
     apiKey: {
       rinkeby: POLYGONSCAN_API_KEY,
+      holesky: process.env.ETHERSCAN_API_KEY
     }
+  },
+  sourcify: {
+    enabled: true
   }
 };

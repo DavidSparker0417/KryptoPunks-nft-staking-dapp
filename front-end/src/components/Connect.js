@@ -34,7 +34,6 @@ function Connect() {
             const chainId = await provider.getNetwork()
             const account = await signer.getAddress()
             const balance = await signer.getBalance()
-
             dispatch(updateAccountData(
                 {
                     account: account,

@@ -64,8 +64,8 @@ function MintPage() {
                 stakedNftIds: stakedTokens,
                 totalReward: Number(ethers.utils.formatUnits(reward, "ether"))
             })
-
             const _userNfts = await Promise.all(userTokens.map(async (nft) => {
+                console.log(`[DAVID] getting ipfs .. ${baseURI}/` + nft.toString() + baseExtension)
                 const metadata = await axios.get(
                     baseURI.replace("ipfs://", "https://ipfs.io/ipfs/") + "/" + nft.toString() + baseExtension
                 )
@@ -74,7 +74,7 @@ function MintPage() {
                     uri: metadata.data.image.replace("ipfs://", "https://ipfs.io/ipfs/")
                 }
             }))
-
+            console.log(`[DAVID] userNfts = ${_userNfts}`)
             setUserNfts(_userNfts)
         }
     }
